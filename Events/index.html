@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li>
+                <img width="200px" id="coding" src="https://images.pexels.com/photos/7498603/pexels-photo-7498603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="photoshop">
+            </li>
+            <li>
+                <img width="200px" id="married" src="https://images.pexels.com/photos/1603884/pexels-photo-1603884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </li>
+            <li>
+                <img width="200px" id="nature" src="https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </li>
+            <li>
+                <img width="200px" id="food" src="https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" >
+            </li>
+            <li>
+                <img width="200px" id="drink" src="https://images.pexels.com/photos/17499904/pexels-photo-17499904/free-photo-of-flaming-drink.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            </li>
+            <li>
+                <a style="color: aliceblue;" href="https://google.com" id="google">Google</a>
+            </li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('food').onclick = function () {
+    //     alert('food clicked');
+    // }
+
+    // document.getElementById('images').addEventListener('click', function(e) {
+    //     console.log('click inside the ul');
+    // }, false);
+
+    // document.getElementById('food').addEventListener('click', function(e) {
+    //     console.log('food clicked');
+    //     e.stopPropagation()
+    // }, false);
+
+
+    // document.getElementById('google').addEventListener('click', function(e) {
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log("Google clicked");
+    // }, false);
+    // type, timestamps, defaultPrevented
+    // target, toElement, srcElement, currentTarget, 
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keycode
+
+    // attachEvent()
+    // jQuery
+
+
+    // remove images
+
+    document.querySelector("#images").addEventListener("click", function(e) {
+        // console.log(e.target.tagName);
+
+        if(e.target.tagName === 'IMG') {
+
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+            removeIt.remove();
+        }
+
+       // removeIt.parentNode.removeChild(removeIt);
+    }, false)
+
+</script>
+</html>
