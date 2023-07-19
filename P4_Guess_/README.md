@@ -1,4 +1,6 @@
-Random Number Guessing Game
+**Random Number Guessing Game**
+
+
 Introduction
 This is a simple Random Number Guessing Game implemented using HTML, CSS, and JavaScript. The game generates a random number between 1 and 100, and the player has 10 chances to guess the correct number. If the player guesses the correct number within the given chances, they win, and the game displays a winning message with a winning style. If the player exhausts all their chances without guessing the correct number, the game reveals the correct number.
 
