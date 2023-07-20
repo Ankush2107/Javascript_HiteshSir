@@ -1,17 +1,17 @@
-let randomNumber = parseInt(Math.random() * 100 + 1);
+let randomNumber = parseInt(Math.random() * 100 + 1);  // generating a random number
 
-const submit = document.querySelector('#subt');
-const userInput = document.querySelector('#guessField');
-const guessSlot = document.querySelector('.Pguesses');
-const remaining = document.querySelector('.lastResult');
-const lowOrHi = document.querySelector('.lowOrHi');
-const startOver = document.querySelector('.resultParas');
+const submit = document.querySelector('#subt');        // Accessing submit botton
+const userInput = document.querySelector('#guessField'); // box on which we input our number
+const guessSlot = document.querySelector('.Pguesses');  // previous guessed number
+const remaining = document.querySelector('.lastResult'); // remaining guesses
+const lowOrHi = document.querySelector('.lowOrHi');  // give you info about the number you have entered is high or low
+const startOver = document.querySelector('.resultParas');  // after submit button content
 
 const p = document.createElement('p');
 
 
-let prevGuess = [];
-let numGuess = 1;
+let prevGuess = [];  // It is storing my all previous guesses
+let numGuess = 1;    // how many chances are left
 
 let playGame = true;
 
@@ -19,10 +19,10 @@ if(playGame) {
     submit.addEventListener("click", function(e) {
         e.preventDefault();
         const guess = parseInt(userInput.value);
-        console.log(guess);
+        // console.log(guess);
         validateGuess(guess);
     });
-}
+};
 
 function validateGuess(guess) {
     if(isNaN(guess)) {
@@ -47,7 +47,7 @@ function validateGuess(guess) {
 
 function checkGuess(guess) {
     if(guess === randomNumber) {
-        displayMessage('You guessed is right');
+        displayMessage('Hurrey You Won');
         endGame()
     } else if(guess < randomNumber) {
         displayMessage('Number is too low');

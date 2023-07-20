@@ -1,7 +1,3 @@
-html {
-    font-family: sans-serif;
-  }
-  
   body {
     width: 300px;
     max-width: 750px;
@@ -15,7 +11,7 @@ html {
     padding: 7px;
   }
   
-  .guesses {
+  .Pguesses {
     color: white;
     padding: 7px;
   }
@@ -33,14 +29,16 @@ html {
   }
   
   #subt {
-    background-color: #161616;
+    background-color: #840b0b;
     color: #ffffff;
     width: 200px;
     height: 50px;
-    border-radius: 10px;
+    border-radius:18px;
     font-size: 20px;
     border-style: none;
     margin-top: 50px;
+    font-weight: 700;
+    cursor: pointer;
     /* margin-left: 75px; */
   }
   
@@ -48,7 +46,7 @@ html {
     color: #000;
     width: 250px;
     height: 50px;
-    font-size: 30px;
+    font-size: 15px;
     border-style: none;
     margin-top: 25px;
   
@@ -64,29 +62,37 @@ html {
     color: #fff;
   }
   
-  .guesses {
+  .Pguesses {
     background-color: #7a7a7a;
   }
   
   #wrapper {
+    margin-top: 20px;
     box-sizing: border-box;
     text-align: center;
     width: 450px;
-    height: 550px;
+    height: 700px;
     background-color: #474747;
     color: #fff;
     font-size: 25px;
+    border: 2px solid black;
+    border-radius: 25px;
   }
   
   h1 {
-    background-color: #161616;
-  
+    background-color: #840b0b;
     color: #fff;
     text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
   p {
     font-size: 16px;
     text-align: center;
+  }
+
+  .lowOrHi, h2{
+    background-color: #7fff00;
+    color: #141414;
   }
   

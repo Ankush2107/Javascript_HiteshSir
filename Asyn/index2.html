@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asyn2</title>
+</head>
+<body>
+    <div id="random-color-box" style="width: 100vw; height: 100vh;  text-align: center; line-height: 200px; font-size: 24px;">
+        Random Background Color
+      </div>
+      <button id="startButton">Start</button>
+      <button id="stopButton">Stop</button>
+    
+      <script>
+        let intervalId;
+    
+        function getRandomColor() {
+          // Generate a random color in hexadecimal format (e.g., #RRGGBB)
+          const letters = "0123456789ABCDEF";
+          let color = "#";
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        }
+
+        document.getElementById("startButton").addEventListener("click", startColorChanging);
+        document.getElementById("stopButton").addEventListener("click", stopColorChanging);
+    
+        function changeBackgroundColor() {
+          const element = document.getElementById("random-color-box");
+          const randomColor = getRandomColor();
+          element.style.backgroundColor = randomColor;
+        }
+    
+        function startColorChanging() {
+          // Change the background color every 3 seconds
+          intervalId = setInterval(changeBackgroundColor, 3000);
+        }
+    
+        function stopColorChanging() {
+          // Clear the interval to stop changing the background color
+          clearInterval(intervalId);
+        }
+    
+        
+      </script>
+</body>
+</html>
