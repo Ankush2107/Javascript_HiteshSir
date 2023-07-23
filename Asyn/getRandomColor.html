@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asyn2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Color Changer</title>
 </head>
-<body>
-    <div id="random-color-box" style="width: 100vw; height: 100vh;  text-align: center; line-height: 200px; font-size: 24px;">
-        Random Background Color
-      </div>
-      <button id="startButton">Start</button>
-      <button id="stopButton">Stop</button>
-    
-      <script>
-        let intervalId;
-    
-        function getRandomColor() {
-          // Generate a random color in hexadecimal format (e.g., #RRGGBB)
-          const letters = "0123456789ABCDEF";
-          let color = "#";
-          for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-          }
-          return color;
-        }
+<body style="height: 100vh; width: 100vw;">
+     <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h1>Random Color Switcher</h1>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+     </div>
+    <script>
 
-        document.getElementById("startButton").addEventListener("click", startColorChanging);
-        document.getElementById("stopButton").addEventListener("click", stopColorChanging);
-    
-        function changeBackgroundColor() {
-          const element = document.getElementById("random-color-box");
-          const randomColor = getRandomColor();
-          element.style.backgroundColor = randomColor;
+      // Random number generator
+
+      function randomColor() {
+        let hex = "0123456789ABCDEF";
+        let color = '#';
+
+        for(let i = 0; i < 6; i++) {
+          color += hex[Math.round(Math.random() * 16)];
         }
-    
-        function startColorChanging() {
-          // Change the background color every 3 seconds
-          intervalId = setInterval(changeBackgroundColor, 3000);
-        }
-    
-        function stopColorChanging() {
-          // Clear the interval to stop changing the background color
-          clearInterval(intervalId);
-        }
-    
+        return color;
+      }
+      
+      document.querySelector('#start').addEventListener('click', startColorChanging);
+      document.querySelector('#stop').addEventListener('click', stopChangingBgColor);
+
+      let intervalId;
+
+      function changeBgColor() {
+        document.body.style.backgroundColor = randomColor();
         
-      </script>
+      }
+      function startColorChanging() {
+        intervalId = setInterval(changeBgColor, 100);
+      }
+      
+      function stopChangingBgColor() {
+        clearInterval(intervalId);
+      }
+
+    </script>
 </body>
 </html>
