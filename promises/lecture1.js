@@ -1,111 +1,103 @@
-const promiseOne = new Promise((resolve, reject) => {
-    // Do an asyn task
-    // DB calls, cryptography, network
+const promiseOne = new Promise(function(resolve, reject) {
+
+    // asyn task
     setTimeout(function() {
-        console.log("Asyn task is Completed");
+        console.log("Asyn task is completed");
         resolve();
-    }, 1000);
+    }, 2000)
 })
+
 promiseOne.then(function() {
-    console.log("Promise consumed");
+    console.log("Promise is consumed");
 })
 
-
-
-new Promise((resolve, reject) => {
-
+new Promise(function(resolve, reject) {
     setTimeout(function() {
-        console.log("Asyn 2 task Completed");
+        console.log("Asyn 2 task is completed");
         resolve();
-    }, 1000)
+    }, 3000)
 }).then(function() {
-    console.log("Asyn 2 resolved");
+    console.log("Asyn 2 is consumed");
 })
 
+
+const promiseTwo = new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+        resolve({username : "Ankush", emailId : "ankush.kumar210701@gmail.com"});
+    }, 2000)
+})
+promiseTwo.then((user) => {
+    console.log(user);
+})
 
 
 const promiseThree = new Promise((resolve, reject) => {
 
-    setTimeout(function() {
-        resolve({username: "Ankush", email: "ankush.kumar210701@gmail.com"})
-    } ,1000)
+    let error = false;
+    if(!error) {
+        resolve({username: "Karan", password: "mahek"});
+    }else {
+        reject("ERROR : something went wrong");
+    }
+
 })
 
-promiseThree.then(function(user) {
+promiseThree.then((user) => {
     console.log(user);
-})
-
-
-const promiseFour = new Promise(function(resolve, reject) {
-    setTimeout(function() {
-        let error = false
-        if(!error) {
-            resolve({username: "Ankush", password: "kumar2107"});
-        }else {
-            reject('ERROR: Something went wrong')
-        }
-    }, 1000)
-})
-
-promiseFour
-.then((user) => {
-    console.log(user);
-    return user.username;
-}).then((username) => {
-    console.log(username);
+    return user.password;
+}).then((password) => {
+    console.log(password);
 }).catch((error) => {
     console.log(error);
 }).finally(() => {
     console.log("The promise is either resolved or rejected");
+}) 
+
+
+// Using Try catch
+const promiseFour = new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+        let error = true;
+        if(!error) {
+            resolve({username: "Rashmi", password: "1002"});
+        }else {
+            reject("ERROR : Rashmi went wront")
+        }
+    }, 3000)
 })
 
-
-const promiseFive = new Promise((resolve, reject) => {
-
-    setTimeout(function() {
-        let error = true
-        if(!error) {
-            resolve({username: "Javascript", password: "123"});
-        }else {
-            reject('ERROR: Js went wrong')
-        }
-    }, 1000)
-});
-
-async function consumePromiseFive() {
+async function consumePromiseFour() {
     try {
-        const response = await promiseFive;
+        const response = await promiseFour;
         console.log(response);
     } catch (error) {
         console.log(error);
     }
 }
 
-consumePromiseFive()
+consumePromiseFour();
 
 
 // async function getAllUser() {
+
 //     try {
-
-//        const response = await fetch('https://jsonplaceholder.typicode.com/users')
-//        const data = await response.json()
-//        console.log(data);
-
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users');
+//         const data = await response.json();
+//         console.log(data);
 //     } catch (error) {
-
-//        console.log("E : ", error); 
-
+//         console.log(error);
 //     }
 // }
+
 // getAllUser();
 
-fetch('https://api.github.com/users/hiteshchoudhary')
+fetch('https://jsonplaceholder.typicode.com/users')
 .then((response) => {
-    return response.json()
-})
-.then((data) => {
+    return response.json();
+}).then((data) => {
     console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
     console.log(error);
 })

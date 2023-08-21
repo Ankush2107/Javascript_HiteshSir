@@ -4,7 +4,7 @@
 
 
 ## Object
-- collection of properties and method
+- Collection of properties and method
 - toLowerCase
 
 
