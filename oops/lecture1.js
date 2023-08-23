@@ -1,11 +1,30 @@
-const user = {
-    username: "Ankush",
-    logInCount: 8,
-    signedIn: true,
+// Object litrals 
 
-    getUserDetails: function() {
-        console.log("Got user details from Database");
-    }
+// const user = {
+//     username: 'Ankush',
+//     logInCount: 8,
+//     signedIn: true,
+
+//     getUserDetails: function() {
+//         // console.log(`Username: ${user.username}`);
+//         // console.log(this);
+//     }
+// }
+
+// console.log(user.getUserDetails());
+
+// new keyword is constructor function
+// const promise = new Promise();
+// const date = new Date();
+
+
+function user(username, logInCount, isLoggedIn) {
+    this.username = username;
+    this.logInCount = logInCount
+    this.isLoggedIn = isLoggedIn
+
+    // return this;
 }
-console.log(user.username);
-console.log(user.getUserDetails());
+
+const userOne = user("hitesh", 12, true);
+console.log(userOne);
